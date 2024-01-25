@@ -31,9 +31,10 @@ class IssuesController extends Controller
      */
     public function store(Request $request)
     {
-        //把request所有資料加到資料庫
-        Issue::create($request->all());
-        return redirect('/');
+        $userId = auth()->user()->id;
+        $requestData = array_merge($request->all(), ['user_id' => $userId]);
+        Issue::create($requestData);
+        return redirect()->route('issues.index');
   
     }
 

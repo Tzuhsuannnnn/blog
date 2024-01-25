@@ -42,4 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    //關聯 一對多 user to issue 
+    public function issues(){
+
+        return $this->hasMany(Issue::class);
+    }
 }

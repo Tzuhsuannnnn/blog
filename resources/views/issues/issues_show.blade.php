@@ -33,7 +33,7 @@
         @foreach($comments as $comment)
 
             <li class="am-comment" style="background-color: #f0f0f0; padding: 10px; margin-bottom: 10px;">
-                <img src="/assets/img/avatar1.png" alt="" class="am-comment-avatar" width="100" height="100">
+                <img src="/assets/img/user_icon.png" alt="" class="am-comment-avatar" width="100" height="100">
                 <div class="am-comment-main">
                     <header class="am-comment-hd">
                         <div class="am-comment-meta">

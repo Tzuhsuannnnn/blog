@@ -33,7 +33,7 @@
                 <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
                     <div class="am-u-sm-2 am-u-md-1 am-list-thumb">
                         <a href="/issues/{{$issue->id}}">
-                            <img src="assets/img/avatar1.png" alt=""/>
+                            <img src="assets/img/user_icon.png" alt=""/>
                         </a>
                     </div>
 
@@ -44,14 +44,14 @@
 
                         <div class="am-list-item-text">
                             <span class="am-badge am-badge-secondary am-radius">read</span>
-                            <span class="meta-data">Aaron</span>
+                            <span class="meta-data"> {{ $issue->user->name }}</span>
                             <!--從create_at時間到現在的時間差-->
                             {{ $issue->created_at->diffForHumans() }}
                         </div>
                     </div>
                     <div class="am-u-sm-3 am-u-md-2 issue-comment-count">
                         <span class="am-icon-comments"></span>
-                        <a href="{{route('issues.show', $issue->id)}}">2</a>
+                        <a href="{{route('issues.show', $issue->id)}}">{{ $issue->comments->count() }}</a>
                     </div>
                 </li>
             

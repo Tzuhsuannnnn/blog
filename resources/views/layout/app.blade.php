@@ -36,6 +36,9 @@
                         <a href="{{ route('login') }}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
                             <span class="am-icon-user"></span> 登入
                         </a>
+                        <a href="{{ route('register') }}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
+                            <span class="am-icon-user"></span> 註冊
+                        </a>
                     @else
                         <a href="{{ route('login') }}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
                             <span class="am-icon-user"></span> {{ auth()->user()->name }}
@@ -61,8 +64,7 @@
     @yield('content')
 
     <footer class="footer">
-        <p class="am-padding-left">Copyright © 2017. Made With <i class="am-icon am-icon-heart"></i> By Aaron. All Rights
-            Reserved.</p>
+        <p class="am-padding-left">Copy Right : Calvin Chia</p>
     </footer>
 
     <!--[if lt IE 9]>
