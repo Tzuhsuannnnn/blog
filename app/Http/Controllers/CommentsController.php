@@ -28,10 +28,24 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        Comment::create($request->all());
-        //返回上一頁
+        
+        //Comment::create($request->all());
+       
+
+        // 取得當前用戶名稱
+        $userName = auth()->user()->name;
+        $userEmail = auth()->user()->email;
+
+        // 在 request 數組中添加 'name' 屬性
+        $requestData = array_merge($request->all(), ['name' => $userName],['email' => $userEmail]);
+
+        // 使用合併後的 request 數組創建 Comment
+        Comment::create($requestData);
+
+        // 返回上一頁
         return back();
-        //return view('issues.issue_show')->with('issue', $issue);
+
+
 
     }
 

@@ -17,7 +17,7 @@
 	   <fieldset>
           <div class="am-form-group">
               <label>標題</label>
-              <input type="text" placeholder="输入活动标题" name="title">
+              <input type="text" placeholder="輸入活動標題" name="title">
           </div>
 
           <div class="am-form-group">

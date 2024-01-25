@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
+    //return redirect()->route('index');
+
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -27,5 +27,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::get('/','App\Http\Controllers\WelcomeController@index')->name('index');
+Route::get('about','App\Http\Controllers\WelcomeController@about');
+
+Route::resource('issues','App\Http\Controllers\IssuesController');
+Route::resource('comments','App\Http\Controllers\CommentsController');
+
+
 
 require __DIR__.'/auth.php';

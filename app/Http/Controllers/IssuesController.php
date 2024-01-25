@@ -33,7 +33,7 @@ class IssuesController extends Controller
     {
         //把request所有資料加到資料庫
         Issue::create($request->all());
-        return redirect(to:'/');
+        return redirect('/');
   
     }
 
@@ -45,7 +45,8 @@ class IssuesController extends Controller
         //return $id;
         $issue = Issue::find($id);
         $comments = $issue-> comments;
-        return view('issues.issues_show', compact('issue', 'comments'));
+        $user = auth()->user();
+        return view('issues.issues_show', compact('issue', 'comments','user'));
 
     }
 

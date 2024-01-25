@@ -52,17 +52,13 @@
         {{csrf_field() }}
         <!--傳入issue_id-->
         <input type="hidden" name="issue_id" value="{{ $issue->id }}" >
+
             <fieldset>
                 <div class="am-form-group">
-                    <label>留言</label>
-                    <p>帳號名稱</p>
-                    <input type="text" placeholder="輸入名稱" name="name">
+                    <label>以{{ auth()->user()->name }}身分留言</label>
+                   
                 </div>
 
-                <div class="am-form-group">
-                    <p>email</p>
-                    <input type="email" placeholder="輸入email" name="email">
-                </div>
 
                 <div class="am-form-group">
                     <textarea rows="5" name="content"></textarea>

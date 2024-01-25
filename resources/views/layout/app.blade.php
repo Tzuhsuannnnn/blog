@@ -32,15 +32,27 @@
                 </ul>
 
                 <div class="am-topbar-right">
-                    <a href="login.html" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
-                        <span class="am-icon-user"></span> Login
-                    </a>
-                </div>
+                    @guest
+                        <a href="{{ route('login') }}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
+                            <span class="am-icon-user"></span> 登入
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
+                            <span class="am-icon-user"></span> {{ auth()->user()->name }}
+                        </a>
+                    @endguest
 
-                <div class="am-topbar-right">
-                    <a href="sign_up.html" class="am-btn am-btn-primary am-topbar-btn am-btn-sm">
-                        <span class="am-icon-pencil"></span> Sign Up
-                    </a>
+                    @auth
+                        <a href="{{ route('logout') }}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="am-icon-sign-out"></span> 登出
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @endauth
+
+               
                 </div>
             </div>
         </div>
