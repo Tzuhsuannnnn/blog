@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Issue;
+use App\Models\Category;
 
 class IssuesController extends Controller
 {
@@ -13,7 +14,20 @@ class IssuesController extends Controller
     public function index()
     {
         $issues = Issue::orderBy('created_at','desc')->get();
-        return view('issues.issue_index')->with('issues',$issues);
+        $categories = Category::all();
+        //return view('issues.issue_index')->with('issues',$issues);
+        return view('issues.issue_index', compact('issues', 'categories'));
+
+
+    }
+
+    public function getIssuesByCategory($categoryId)
+    {
+        dd($categoryId);
+
+        $issues = Issue::where('category_id', $categoryId)->get();
+
+        return view('issues.issue_index', compact('issues'));
     }
 
 
@@ -22,7 +36,9 @@ class IssuesController extends Controller
      */
     public function create()
     {
-        return view('issues.issue_create');
+        
+        $categories = Category::all(); 
+        return view('issues.issue_create', compact('categories'));
 
     }
 
@@ -35,7 +51,7 @@ class IssuesController extends Controller
         $requestData = array_merge($request->all(), ['user_id' => $userId]);
         Issue::create($requestData);
         return redirect()->route('issues.index');
-  
+
     }
 
     /**
@@ -59,6 +75,7 @@ class IssuesController extends Controller
         $issue = Issue::find($id);
         //return response()->json($issue);
         return view('issues.issue_edit')->with('issue', $issue);
+
     }
 
     /**
@@ -70,7 +87,9 @@ class IssuesController extends Controller
         $issue = Issue::find($id);
         //把取得data update to DB
         $issue->update($request->all());
-        return view('issues.issues_show')->with('issue', $issue);
+        $comments = $issue-> comments;
+        return view('issues.issues_show', compact('issue', 'comments'));
+
         
     }
 
@@ -82,4 +101,9 @@ class IssuesController extends Controller
         Issue::destroy($id);
         return redirect(to:'/');
     }
+
+    
+
+
+
 }

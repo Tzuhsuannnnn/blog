@@ -1,7 +1,14 @@
-import './bootstrap';
+// resources/js/app.js
 
-import Alpine from 'alpinejs';
+require('./bootstrap');
 
-window.Alpine = Alpine;
+/*import Vue from 'vue';
 
-Alpine.start();
+Vue.config.productionTip = false;
+
+// Register your Vue components
+Vue.component('filterable-issues', require('./components/FilterableIssues.vue').default);
+
+const app = new Vue({
+  el: '#app',
+});*/

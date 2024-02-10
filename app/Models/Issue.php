@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Issue extends Model
 {
-    protected $fillable = ['title','content','user_id'];
+    protected $fillable = ['title','content','user_id', 'category_id'];
     //use HasFactory;
 
     //關聯 一對多 user to issue
@@ -16,10 +16,15 @@ class Issue extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 
     //關聯 一對多 issue to comment (so comments 複數)
     public function comments(){
 
         return $this->hasMany(Comment::class);
     }
+
 }

@@ -10,10 +10,15 @@
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <link rel="stylesheet" href="{{ asset('assets/vendor/amazeui/css/amazeui.min.css') }}"/>
     <link rel="stylesheet" href="{{ asset('assets/css/common.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
+
 
 </head>
 
 <body>
+    <div id="app">
     <!--<header class="am-topbar am-topbar-fixed-top">-->
         <div class="am-container">
             <h1 class="am-topbar-brand">
@@ -66,6 +71,7 @@
     <footer class="footer">
         <p class="am-padding-left">Copy Right : Calvin Chia</p>
     </footer>
+</div>
 
     <!--[if lt IE 9]>
     <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>

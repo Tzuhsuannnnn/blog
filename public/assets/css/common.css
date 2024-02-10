@@ -1,36 +1,36 @@
 /* Write your styles */
 a {
-    color: #7EB6AD;
+    color: #505A5B;
 }
 
 a:hover {
-    color: teal;
+    color: #343F3E;
 }
 
 .am-topbar .am-topbar-right a {
-    color: #fff;
+    color: #DCEDFF;
 }
 
 .am-badge-secondary {
-    background-color: teal;
+    background-color: #343F3E;
 }
 
 .am-btn-secondary {
-    background-color: #7EB6AD;
-    border-color: #7EB6AD;
+    background-color: #505A5B;
+    border-color: #505A5B;
 }
 
 .am-btn-secondary:focus, .am-btn-secondary:hover {
-    background-color: teal;
+    background-color: #94B0DA;
 }
 
 .am-btn-secondary.am-active, .am-btn-secondary:active, .am-btn-secondary:focus, .am-btn-secondary:hover, .am-dropdown.am-active .am-btn-secondary.am-dropdown-toggle {
-    border-color: teal;
+    border-color: #94B0DA;
 }
 
 .am-pagination > .am-active > a, .am-pagination > .am-active > a:focus, .am-pagination > .am-active > a:hover, .am-pagination > .am-active > span, .am-pagination > .am-active > span:focus, .am-pagination > .am-active > span:hover {
-    border-color: teal;
-    background-color: teal;
+    border-color: #94B0DA;
+    background-color: #94B0DA;
 }
 
 .page-404 {
@@ -67,7 +67,7 @@ a:hover {
     border-bottom: 1px solid #ddd;
     margin-top: 0;
     margin-bottom: 35px;
-    background: #7EB6AD;
+    background: #94B0DA;
     color: #fff;
 }
 
@@ -131,7 +131,7 @@ a:hover {
     padding-top: 30px;
     margin-top: 0;
     margin-bottom: 35px;
-    background: #7EB6AD;
+    background: #94B0DA;
     color: #fff;
     font-size: 2em;
 }
@@ -212,8 +212,8 @@ a:hover {
 .pagination > .active > span:focus {
     z-index: 2;
     color: #fff;
-    background-color: #7EB6AD;
-    border-color: #7EB6AD;
+    background-color: #94B0DA;
+    border-color: #94B0DA;
     cursor: default;
 }
 

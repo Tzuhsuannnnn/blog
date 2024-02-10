@@ -43,7 +43,7 @@
                         </h3>
 
                         <div class="am-list-item-text">
-                            <span class="am-badge am-badge-secondary am-radius">read</span>
+                            <span class="am-badge am-badge-secondary am-radius">{{ $issue->category->name }}</span>
                             <span class="meta-data"> {{ $issue->user->name }}</span>
                             <!--從create_at時間到現在的時間差-->
                             {{ $issue->created_at->diffForHumans() }}

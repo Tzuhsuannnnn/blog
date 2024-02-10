@@ -32,6 +32,11 @@ Route::middleware('auth')->group(function () {
 Route::get('/','App\Http\Controllers\WelcomeController@index')->name('index');
 Route::get('about','App\Http\Controllers\WelcomeController@about');
 
+Route::resource('categories','App\Http\Controllers\CategoriesController');
+//Route::get('/categories/{categoryId}', [CategoriesController::class, 'showCategory'])->name('categories.showCategory');
+//Route::get('/categories/{categoryId}/issues', [CategoriesController::class, 'showCategoryIssues'])->name('categories.showCategoryIssues');
+Route::get('/categories/{categoryId}/issues', [IssueController::class, 'getIssuesByCategory'])->name('categories.issues');
+
 Route::resource('issues','App\Http\Controllers\IssuesController');
 Route::resource('comments','App\Http\Controllers\CommentsController');
 
