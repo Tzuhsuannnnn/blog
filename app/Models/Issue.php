@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Issue extends Model
 {
-    protected $fillable = ['title','content','user_id', 'category_id'];
+    protected $fillable = ['title','content','user_id', 'category_id','tag_id'];
     //use HasFactory;
 
     //關聯 一對多 user to issue
@@ -26,5 +26,12 @@ class Issue extends Model
 
         return $this->hasMany(Comment::class);
     }
+
+    //關聯 issues to tags 多對多
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
 
 }

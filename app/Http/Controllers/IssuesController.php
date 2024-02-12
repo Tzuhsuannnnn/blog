@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Issue;
 use App\Models\Category;
+use App\Models\tag;
+
 
 class IssuesController extends Controller
 {
@@ -38,7 +40,8 @@ class IssuesController extends Controller
     {
         
         $categories = Category::all(); 
-        return view('issues.issue_create', compact('categories'));
+        $tags = tag::all(); 
+        return view('issues.issue_create', compact('categories','tags'));
 
     }
 
@@ -49,7 +52,19 @@ class IssuesController extends Controller
     {
         $userId = auth()->user()->id;
         $requestData = array_merge($request->all(), ['user_id' => $userId]);
-        Issue::create($requestData);
+
+
+         // 创建 Issue 实例
+        $issue = Issue::create($requestData);
+        
+        // 获取请求中的标签 ID 数组
+        $tagIds = $request->input('tags'); 
+
+        // 使用 attach 方法将标签附加到问题，前提是 $tagIds 不为空
+        if (!empty($tagIds)) {
+            $issue->tags()->attach($tagIds);
+        }
+
         return redirect()->route('issues.index');
 
     }
