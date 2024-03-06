@@ -11,10 +11,11 @@
 
 <div class="am-container">
     <div data-am-widget="list_news" class="am-list-news am-list-news-default">
-        <!-- category選單 -->
+        <!-- category選單 
         @foreach($categories as $category)
             <a href="{{ route('categories.index', $category->id) }}" class="">{{ $category->name }}</a>
         @endforeach
+        -->
 
         <ul class="am-list">
             @foreach($issues as $issue)

@@ -39,6 +39,8 @@ Route::post('tags','App\Http\Controllers\TagsController@getTag')->name('get-tag'
 //Route::get('/categories/{categoryId}/issues', [IssueController::class, 'getIssuesByCategory'])->name('categories.issues');
 
 Route::resource('issues','App\Http\Controllers\IssuesController');
+Route::get('my-issues', 'App\Http\Controllers\IssuesController@myIssues')->name('my-issues');
+
 Route::resource('comments','App\Http\Controllers\CommentsController');
 
 

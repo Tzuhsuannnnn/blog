@@ -34,9 +34,8 @@
 
             <div class="am-collapse am-topbar-collapse" id="collapse-head">
                 <ul class="am-nav am-nav-pills am-topbar-nav">
-                    <li><a href="{{route('issues.index')}}">活動</a></li>
-                    
-                    <li><a href="/about">關於</a></li>
+                    <li><a href="{{route('issues.index')}}">Article</a></li>                   
+                    <li><a href="{{route('my-issues')}}">about me</a></li>
                 </ul>
 
                 <div class="am-topbar-right">
@@ -56,7 +55,7 @@
                     @auth
                         <a href="{{ route('logout') }}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm"
                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <span class="am-icon-sign-out"></span> 登出
+                            <span class="am-icon-sign-out"></span> LogOut
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf

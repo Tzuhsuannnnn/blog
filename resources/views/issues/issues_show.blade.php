@@ -29,8 +29,13 @@
 
         <div class="border-box">
             <p>{{$issue->content}}</p>
+
+            @foreach ($issue->tags as $tag)
+            <span style="background-color: #f0f0f0; padding: 2px;"> #{{ $tag->name}}</span>
+            @endforeach
+                
         </div>
-        <ul class="am-comments-list am-comments-list-flip">
+        
 
         <h2>留言板</h2>
         @foreach($comments as $comment)

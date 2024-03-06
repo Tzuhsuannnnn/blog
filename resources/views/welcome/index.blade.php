@@ -5,7 +5,7 @@
 <div class="get">
     <div class="am-g">
         <div class="am-u-lg-12">
-            <h1 class="get-title">It's Party Time!<br>Drink Up!</h1>
+            <h1 class="get-title">Blog<br></h1>
             <p>
                 <a href="{{route('issues.create')}}" class="am-btn am-btn-default am-btn-secondary">發布新活動</a>
             </p>

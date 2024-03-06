@@ -253,3 +253,7 @@ a:hover {
 .pagination-right {
     text-align: right;
 }
+
+li.am-comment {
+    list-style-type: none;
+}

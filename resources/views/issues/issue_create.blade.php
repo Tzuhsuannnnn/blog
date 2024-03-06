@@ -71,7 +71,7 @@
 
 
 <script>
-    // Tag list 
+    // Tag list (Select2)
     $(document).ready(function(){
 
 

@@ -33,6 +33,25 @@ class IssuesController extends Controller
     }
 
 
+    public function myIssues()
+    {
+        
+
+        //获取当前登录用户的ID
+        $userId = auth()->id();
+
+        // 只获取当前登录用户的issues
+        $issues = Issue::where('user_id', $userId)->get();
+
+        // 如果你的应用有分类，也可以一并获取
+        $categories = Category::all();
+
+        // 返回视图，并传递issues和categories
+        return view('welcome.about', compact('issues', 'categories'));
+
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -114,6 +133,7 @@ class IssuesController extends Controller
     public function destroy(string $id)
     {
         Issue::destroy($id);
+        
         return redirect(to:'/');
     }
 

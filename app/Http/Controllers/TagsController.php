@@ -12,6 +12,7 @@ class TagsController extends Controller
 
     public function getTag(Request $request){
         $tags=[];
+
         if($search=$request->name){
             $tags = tag::where('name', 'LIKE',"%$search%")->get();
 
